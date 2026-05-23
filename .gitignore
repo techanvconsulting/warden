@@ -38,5 +38,7 @@ yarn-error.log*
 .eslintcache
 
 .npmrc
+# but DO track the project-level pnpm settings (no secrets in it)
+!/.npmrc
 
 node_modules
