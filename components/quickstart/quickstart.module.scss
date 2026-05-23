@@ -32,7 +32,7 @@
 
 .sub {
   max-width: desktop-vw(520px);
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   opacity: 0.6;
   margin-bottom: mobile-vw(32px);
 
@@ -45,8 +45,8 @@
   display: flex;
   align-items: center;
   gap: mobile-vw(10px);
-  background: #080808;
-  border: 1px solid #27272a;
+  background: #0d0d0d;
+  border: 1px solid #2e2e32;
   border-radius: 6px;
   padding: mobile-vw(14px) mobile-vw(16px);
   font-family: 'PP FraktionMono', ui-monospace, monospace;
@@ -132,7 +132,7 @@
 .meta {
   font-family: 'PP FraktionMono', ui-monospace, monospace;
   font-size: mobile-vw(11px);
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   opacity: 0.5;
 
   @include desktop {

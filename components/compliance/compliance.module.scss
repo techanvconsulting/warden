@@ -47,9 +47,9 @@
   font-family: 'PP FraktionMono', ui-monospace, monospace;
   font-size: mobile-vw(12px);
   padding: mobile-vw(8px) mobile-vw(14px);
-  border: 1px solid var(--theme-primary);
+  border: 1px solid var(--theme-dot);
   border-radius: 999px;
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   transition: all 0.2s ease;
 
   @include desktop {

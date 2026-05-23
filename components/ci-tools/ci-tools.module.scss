@@ -36,7 +36,7 @@
 }
 
 .sub {
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   opacity: 0.6;
 }
 
@@ -56,7 +56,7 @@
   align-items: center;
   gap: mobile-vw(14px);
   padding: mobile-vw(16px) mobile-vw(18px);
-  border: 1px solid var(--theme-primary);
+  border: 1px solid var(--theme-dot);
   border-radius: 4px;
   transition:
     border-color 0.2s ease,
@@ -76,7 +76,7 @@
 .name {
   font-family: 'PP FraktionMono', ui-monospace, monospace;
   font-size: mobile-vw(15px);
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   min-width: mobile-vw(110px);
 
   @include desktop {
@@ -88,7 +88,7 @@
 .scans {
   flex: 1;
   font-size: mobile-vw(12px);
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   opacity: 0.55;
 
   @include desktop {
