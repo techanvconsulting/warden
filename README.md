@@ -1,6 +1,6 @@
-# zkPass
+# WARDEN X TECHANV
 
-Marketing/brand website for zkPass. Built with Next.js (pages router), TinaCMS for content, and a WebGL/GSAP-driven frontend.
+Marketing/brand website (Warden, a Techanv Consulting project). Built with Next.js (pages router), TinaCMS for content, and a WebGL/GSAP-driven frontend.
 
 ---
 
