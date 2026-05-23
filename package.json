@@ -1,11 +1,11 @@
 {
-  "name": "zkpass",
+  "name": "warden",
   "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "start": "tinacms build && next start -p 9992",
+    "build": "node scripts/build.mjs",
+    "preview": "npx serve@latest out -l 9992",
     "lint": "next lint",
     "postbuild": "next-sitemap",
     "analyze": "cross-env ANALYZE=true next build",

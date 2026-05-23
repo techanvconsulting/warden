@@ -1,4 +1,5 @@
-import { Accordion, Image, Link, Marquee } from '@studio-freight/compono'
+import { Accordion, Image, Marquee } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import cn from 'clsx'
 import { RichText } from 'libs/tina/richtext'
 import { Background } from 'libs/webgl/components/background'

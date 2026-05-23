@@ -1,4 +1,4 @@
-import { Link } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import { Lenis } from '@studio-freight/react-lenis'
 import cn from 'clsx'
 import { useStore } from 'libs/store'

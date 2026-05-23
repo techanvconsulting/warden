@@ -1,4 +1,4 @@
-import { Link } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import cn from 'clsx'
 import { useEffect, useState } from 'react'
 import { shuffle } from 'txt-shuffle'
@@ -26,7 +26,7 @@ export function Header() {
   }
 
   useEffect(() => {
-    handleShuffle('zkPass', 'logo')
+    handleShuffle('WARDEN X TECHANV', 'logo')
     anchorLinks.forEach((link, i) => handleShuffle(link.text, i))
   }, [])
 
@@ -36,7 +36,7 @@ export function Header() {
         href="/"
         className={s.logoLink}
         onMouseEnter={() => {
-          handleShuffle('zkPass', 'logo')
+          handleShuffle('WARDEN X TECHANV', 'logo')
         }}
       >
         {shuffledTexts['logo']}

@@ -43,9 +43,9 @@ global:
               url: 'https://medium.com/zkpass'
           - link:
               text: Github
-              url: 'https://github.com/zkPassOfficial'
+              url: 'https://github.com/techanvconsulting/warden'
     _template: navigation
-  - title: zkPass
+  - title: WARDEN X TECHANV
     description: Privacy-focused to connect the world
     keywords:
       - web3

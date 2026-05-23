@@ -1,4 +1,5 @@
-import { Accordion, Image, Link } from '@studio-freight/compono'
+import { Accordion, Image } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import cn from 'clsx'
 import { Background } from 'libs/webgl/components/background'
 import dynamic from 'next/dynamic'

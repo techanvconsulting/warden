@@ -52,14 +52,47 @@ This runs `tinacms dev -c "next dev"`, which starts **two** things:
 
 ## Scripts
 
-| Command        | Description                                                                         |
-| -------------- | ----------------------------------------------------------------------------------- |
-| `pnpm dev`     | Tina GraphQL + Next.js dev server (use this).                                       |
-| `pnpm build`   | `tinacms build && next build` — production build (needs Tina Cloud env, see below). |
-| `pnpm start`   | Build then serve production on port `9992`.                                         |
-| `pnpm lint`    | Next.js ESLint.                                                                     |
-| `pnpm analyze` | Build with the bundle analyzer.                                                     |
-| `pnpm size`    | Build and run size-limit.                                                           |
+| Command        | Description                                                      |
+| -------------- | ---------------------------------------------------------------- |
+| `pnpm dev`     | Tina GraphQL + Next.js dev server (use this for development).    |
+| `pnpm build`   | Static export to `./out` (see [Build & deploy](#build--deploy)). |
+| `pnpm preview` | Serve the built `./out` locally on port `9992`.                  |
+| `pnpm lint`    | Next.js ESLint.                                                  |
+| `pnpm analyze` | Build with the bundle analyzer.                                  |
+
+## Build & deploy
+
+The site builds to a fully static `./out` directory (`output: 'export'`) and is
+deployed to **GitHub Pages** by `.github/workflows/deploy.yml` on every push to
+`main`.
+
+```bash
+pnpm build      # -> ./out
+pnpm preview    # serve ./out at http://localhost:9992
+```
+
+`pnpm build` runs `scripts/build.mjs`, which:
+
+1. starts the Tina local GraphQL server (so `getStaticProps` can fetch content), then
+2. runs `next build` standalone, then
+3. shuts the server down.
+
+> ⚠️ Do **not** change the build to `tinacms build -c "next build"`. That wrapper
+> triggers a spurious `<Html> should not be imported outside of pages/_document`
+> error during static export. Running `next build` standalone against the live
+> Tina server (what `scripts/build.mjs` does) is the working approach.
+
+No Tina Cloud credentials are required to build — content comes from the local
+markdown in `tina/content/`.
+
+### One-time GitHub setup
+
+- Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+- Custom domain `warden.techanv.com` is set via `public/CNAME`. Add a DNS
+  `CNAME` record: `warden` → `techanvconsulting.github.io`.
+- Not using a custom domain? Delete `public/CNAME` and set
+  `basePath`/`assetPrefix` to `/warden` in `next.config.js` (project pages are
+  served from `/<repo>`).
 
 ## Environment
 

@@ -1,7 +1,6 @@
 import { OrchestraPage, OrchestraToggle } from 'libs/orchestra'
-import { forwardRef } from 'react'
 
-const Orchestra = forwardRef(function Orchestra({}) {
+export default function Orchestra() {
   return (
     <OrchestraPage>
       <OrchestraToggle icon="⚙️" title="studio" id="studio" />
@@ -10,6 +9,4 @@ const Orchestra = forwardRef(function Orchestra({}) {
       <OrchestraToggle icon="🚧" title="dev" id="dev" />
     </OrchestraPage>
   )
-})
-
-export default Orchestra
+}
