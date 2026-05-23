@@ -80,7 +80,8 @@
       "react": "18.2.0",
       "react-dom": "18.2.0",
       "scheduler": "0.23.0",
-      "@studio-freight/hamo": "0.6.23"
+      "@studio-freight/hamo": "0.6.23",
+      "@studio-freight/react-lenis": "0.0.38"
     }
   },
   "lint-staged": {
@@ -91,5 +92,6 @@
     {
       "path": ".next/static/chunks/**/*.js"
     }
-  ]
+  ],
+  "packageManager": "pnpm@8.15.9"
 }

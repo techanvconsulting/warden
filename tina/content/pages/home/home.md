@@ -1,23 +1,7 @@
 ---
 title: home
 global:
-  - header:
-      linkGroup:
-        - groupLabel: Resources
-          links:
-            - text: Whitepaper
-              url: 'https://google.com'
-            - text: Doc
-              url: 'https://google.com'
-            - text: Roadmap
-              url: 'https://google.com'
-        - groupLabel: Devs
-          links:
-            - text: Contributor Program
-            - text: Run a Node
-      cta:
-        text: Launch App
-        url: 'https://pre.zkpass.org/dashboard'
+  - header: {}
     footer:
       logo: /cms/svg/p.svg
       topLeftLinks:

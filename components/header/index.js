@@ -1,12 +1,10 @@
 import { Link } from '@studio-freight/compono'
 import cn from 'clsx'
 import { useEffect, useState } from 'react'
-import { tinaField } from 'tinacms/dist/react'
 import { shuffle } from 'txt-shuffle'
 import s from './header.module.scss'
 
-export function Header(props) {
-  const { linkGroup, cta } = props
+export function Header() {
   const anchorLinks = [
     { text: 'Technologies', url: '/#technologies' },
     { text: 'Solutions', url: '/#solutions' },
@@ -28,14 +26,9 @@ export function Header(props) {
   }
 
   useEffect(() => {
-    if (!linkGroup?.length) return
     handleShuffle('zkPass', 'logo')
     anchorLinks.forEach((link, i) => handleShuffle(link.text, i))
-    linkGroup.forEach((group, i) =>
-      handleShuffle(group.groupLabel, i + anchorLinks.length),
-    )
-    handleShuffle(cta.text, 'cta')
-  }, [linkGroup])
+  }, [])
 
   return (
     <header className={cn(s.header, 'layout-grid', 'desktop-only')}>
@@ -61,48 +54,6 @@ export function Header(props) {
           {shuffledTexts[i]}
         </Link>
       ))}
-
-      {linkGroup?.map((group, i) => (
-        <div
-          className={cn(s.navLink, s.dropdownItem)}
-          key={i}
-          onMouseEnter={() => {
-            handleShuffle(group.groupLabel, i + anchorLinks.length)
-          }}
-          data-tina-field={tinaField(group, 'groupLabel')}
-        >
-          <p className={s.dropdownLabel}>
-            {shuffledTexts[i + anchorLinks.length]}
-          </p>
-
-          <div className={s.dropdown}>
-            {group.links?.map((link, i) => (
-              <Link
-                className="p"
-                href={link.url}
-                key={i}
-                data-tina-field={tinaField(link, 'text')}
-              >
-                <span> {link.text}</span>
-                {!link?.url && (
-                  <span className={s.comingSoon}>&nbsp;(Coming Soon)</span>
-                )}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ))}
-
-      <Link
-        className={s.cta}
-        href={cta.url}
-        data-tina-field={tinaField(cta, 'text')}
-        onMouseEnter={() => {
-          handleShuffle(cta.text, 'cta')
-        }}
-      >
-        {shuffledTexts['cta']}
-      </Link>
     </header>
   )
 }

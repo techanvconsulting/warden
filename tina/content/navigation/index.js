@@ -174,12 +174,6 @@ export const navigation = {
   fields: [header, footer],
   ui: {
     defaultItem: {
-      header: {
-        cta: {
-          text: 'Launch App',
-          url: 'https://pre.zkpass.org/dashboard',
-        },
-      },
       footer: {
         topLeftLinks: {
           label: 'About',
