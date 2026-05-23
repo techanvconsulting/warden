@@ -42,6 +42,13 @@ export function HeaderMobile() {
               </Link>
             ))}
           </nav>
+
+          <Link
+            className={s.cta}
+            href="https://github.com/techanvconsulting/warden"
+          >
+            ★ GitHub
+          </Link>
         </div>
       </div>
     </header>

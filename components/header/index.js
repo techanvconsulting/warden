@@ -54,6 +54,18 @@ export function Header() {
           {shuffledTexts[i]}
         </Link>
       ))}
+
+      <div className={s.status}>
+        <span className={s.dot} />
+        <span>v1.0 · secure</span>
+      </div>
+
+      <Link
+        className={s.cta}
+        href="https://github.com/techanvconsulting/warden"
+      >
+        ★ GitHub
+      </Link>
     </header>
   )
 }
