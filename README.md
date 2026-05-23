@@ -2,22 +2,24 @@
 
 Marketing/brand website (Warden, a Techanv Consulting project). Built with Next.js (pages router), TinaCMS for content, and a WebGL/GSAP-driven frontend.
 
+Runs on the latest major versions of the stack: **Next 16, React 19, @react-three/fiber 9 / three 0.184 / drei 10, TinaCMS 3, Zustand 5**.
+
 ---
 
 ## Requirements
 
 | Tool | Version                             | Why                                                                                                                            |
 | ---- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Node | **18** (`.nvmrc`)                   | Native deps (`better-sqlite3`) don't build on Node 24.                                                                         |
+| Node | **≥ 20.9** (`.nvmrc` → **22**)      | Next 16 requires Node `>=20.9`. CI reads `.nvmrc`.                                                                             |
 | pnpm | **8** (pinned via `packageManager`) | Repo lockfile is `lockfileVersion 6.0` (pnpm 8). **Do not use npm** — it ignores `pnpm.overrides` and breaks dependency dedup. |
 
-> ⚠️ This is a **pnpm** project. Using `npm`/`yarn` produces duplicate `scheduler` / `react-lenis` versions and a failed build.
+> ⚠️ This is a **pnpm** project. Using `npm`/`yarn` produces duplicate `scheduler` / `react` versions and a failed build.
 
 ## Setup
 
 ```bash
 # 1. Use the right Node version
-nvm use            # reads .nvmrc -> Node 18
+nvm use            # reads .nvmrc -> Node 22
 
 # 2. Enable corepack so the pinned pnpm 8 is used automatically
 corepack enable
@@ -34,7 +36,7 @@ No environment variables are required for local development (see [Environment](#
 pnpm dev
 ```
 
-This runs `tinacms dev -c "next dev"`, which starts **two** things:
+This runs `tinacms dev -c "next dev --webpack"`, which starts **two** things:
 
 - the **TinaCMS local GraphQL server** on `http://localhost:4001/graphql`
 - the **Next.js app** on `http://localhost:3000`
@@ -57,7 +59,7 @@ This runs `tinacms dev -c "next dev"`, which starts **two** things:
 | `pnpm dev`     | Tina GraphQL + Next.js dev server (use this for development).    |
 | `pnpm build`   | Static export to `./out` (see [Build & deploy](#build--deploy)). |
 | `pnpm preview` | Serve the built `./out` locally on port `9992`.                  |
-| `pnpm lint`    | Next.js ESLint.                                                  |
+| `pnpm lint`    | ESLint (flat config, `eslint.config.mjs`).                       |
 | `pnpm analyze` | Build with the bundle analyzer.                                  |
 
 ## Build & deploy
@@ -74,8 +76,13 @@ pnpm preview    # serve ./out at http://localhost:9992
 `pnpm build` runs `scripts/build.mjs`, which:
 
 1. starts the Tina local GraphQL server (so `getStaticProps` can fetch content), then
-2. runs `next build` standalone, then
+2. runs `next build --webpack` standalone, then
 3. shuts the server down.
+
+> ⚠️ The build (and `pnpm dev`) is pinned to the **webpack** bundler via `--webpack`.
+> Next 16 defaults to Turbopack, which cannot run this project's custom Sass
+> functions (`get`/`getColors`/`getThemes` in `next.config.js`) or the
+> `@svgr/webpack` / glsl / graphql loaders. Do not drop the `--webpack` flag.
 
 > ⚠️ Do **not** change the build to `tinacms build -c "next build"`. That wrapper
 > triggers a spurious `<Html> should not be imported outside of pages/_document`
@@ -124,7 +131,8 @@ The header navigation is **not** in the CMS: the anchor links
 
 - [Next.js](https://nextjs.org/) (pages router) · [TinaCMS](https://tina.io/) (content + GraphQL)
 - [Three.js](https://threejs.org/) · [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber) · [@react-three/drei](https://github.com/pmndrs/drei) · [postprocessing](https://github.com/pmndrs/postprocessing)
-- [GSAP](https://greensock.com/gsap/) · [Lenis](https://github.com/studio-freight/lenis) · [Tempus](https://github.com/studio-freight/tempus) · [Theatre.js](https://www.theatrejs.com/)
+- [GSAP](https://greensock.com/gsap/) · [Lenis](https://github.com/darkroomengineering/lenis) · [Tempus](https://github.com/darkroomengineering/tempus) · [Theatre.js](https://www.theatrejs.com/)
+  - Scroll/RAF/measure hooks come from the maintained `lenis` (`lenis/react`), `tempus`, and `hamo` packages (migrated off the deprecated `@studio-freight/*`).
 - [Zustand](https://github.com/pmndrs/zustand) (state) · [Embla Carousel](https://www.embla-carousel.com/)
 - Sass (CSS Modules) · [@svgr/webpack](https://github.com/gregberge/svgr) (SVG imports, see `next.config.js`)
 - [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) (postbuild)
@@ -144,15 +152,17 @@ Standard Next.js layout (`/public`, `/pages`) plus:
 
 ## Code style
 
-- ESLint (Next + Prettier configs) · Prettier (no semicolons, single quotes, `endOfLine: auto`)
+- ESLint **flat config** (`eslint.config.mjs`, eslint 9) — `next/core-web-vitals` rules + react-hooks, wired via each plugin's native flat config · Prettier (no semicolons, single quotes, `endOfLine: auto`)
 - Husky + lint-staged pre-commit hooks
 
 ## Troubleshooting
 
-| Symptom                                           | Cause / Fix                                                                                                              |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `TypeError: fetch failed` in `getStaticProps`     | Tina GraphQL server not running. Use `pnpm dev`, not `next dev`.                                                         |
-| `Multiple versions of scheduler` / `react-lenis`  | You used `npm`. Delete `node_modules` + `package-lock.json`, run `pnpm install`. Dedup is enforced via `pnpm.overrides`. |
-| `better-sqlite3` build error (V8 / `node-gyp`)    | Wrong Node version. Run `nvm use` (Node 18).                                                                             |
-| `ERR_PNPM_LOCKFILE_BREAKING_CHANGE`               | A newer pnpm rewrote the lock. Use pnpm 8 (`corepack enable` honors the pinned `packageManager`).                        |
-| `Warning: __non_webpack_require__ is not defined` | Harmless — from Tina's local `better-sqlite3` backend. Ignore.                                                           |
+| Symptom                                                        | Cause / Fix                                                                                                              |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `TypeError: fetch failed` in `getStaticProps`                  | Tina GraphQL server not running. Use `pnpm dev`, not `next dev`.                                                         |
+| `Node.js version ">=20.9.0" is required`                       | Next 16 needs Node ≥ 20.9. Run `nvm use` (reads `.nvmrc` → Node 22).                                                     |
+| `sassOptions.functions ... not supported when using Turbopack` | You dropped the `--webpack` flag. Build/dev must run on webpack (`next build --webpack` / `next dev --webpack`).         |
+| `Multiple versions of scheduler` / `react`                     | You used `npm`. Delete `node_modules` + `package-lock.json`, run `pnpm install`. Dedup is enforced via `pnpm.overrides`. |
+| `better-sqlite3` build error (V8 / `node-gyp`)                 | Wrong Node version. Run `nvm use` (Node 22).                                                                             |
+| `ERR_PNPM_LOCKFILE_BREAKING_CHANGE`                            | A newer pnpm rewrote the lock. Use pnpm 8 (`corepack enable` honors the pinned `packageManager`).                        |
+| `Warning: __non_webpack_require__ is not defined`              | Harmless — from Tina's local `better-sqlite3` backend. Ignore.                                                           |
