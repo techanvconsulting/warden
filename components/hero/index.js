@@ -11,7 +11,6 @@ import { shuffle } from 'txt-shuffle'
 import s from './hero.module.scss'
 import ArrowIcon from '/assets/svgs/arrow.svg'
 import CrossIcon from '/assets/svgs/cross.svg'
-import Logomark from '/assets/svgs/logomark.svg'
 import { useEffect } from 'react'
 
 export function Hero(props) {
@@ -66,7 +65,11 @@ export function Hero(props) {
 
           <div className={s.body}>
             <div className={s.logoWrap}>
-              <Logomark />
+              <img
+                src="/images/logomark.webp"
+                alt="Warden logomark"
+                className={s.logo}
+              />
             </div>
 
             <p
