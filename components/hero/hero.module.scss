@@ -313,6 +313,11 @@
 
       .iconWrap {
         position: relative;
+
+        // logomark webp has a dark bg — screen-blend it onto the dark framework box
+        img {
+          mix-blend-mode: screen;
+        }
       }
       .marquee {
         overflow-x: hidden;

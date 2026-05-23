@@ -64,7 +64,7 @@ sections:
       Warden bakes security into every phase of AI-led development as a blocking
       constraint — not a post-hoc checklist.
     banner:
-      icon: /cms/svg/Logo wire 2.svg
+      icon: /images/logomark.webp
       marquee:
         textEntry:
           - Security as a blocking constraint, not a checklist.
