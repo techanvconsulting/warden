@@ -48,7 +48,7 @@ try {
   await waitForServer(TINA_URL)
   // give Tina a moment to finish indexing + regenerating the local client
   await new Promise((r) => setTimeout(r, 5000))
-  const build = run('npx', ['next', 'build'])
+  const build = run('npx', ['next', 'build', '--webpack'])
   code = await new Promise((resolve) => build.on('exit', (c) => resolve(c ?? 1)))
 } catch (err) {
   console.error(err)

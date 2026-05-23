@@ -1,4 +1,4 @@
-import { useRect } from '@studio-freight/hamo'
+import { useRect } from 'hamo'
 import cn from 'clsx'
 import { useDeviceDetection } from 'components/device-detection'
 import dynamic from 'next/dynamic'

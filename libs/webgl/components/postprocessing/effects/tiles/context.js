@@ -1,4 +1,4 @@
-import { useWindowSize } from '@studio-freight/hamo'
+import { useWindowSize } from 'hamo'
 import {
   createContext,
   useCallback,

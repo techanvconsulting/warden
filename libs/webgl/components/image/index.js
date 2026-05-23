@@ -1,5 +1,5 @@
 import { Image as NextImage } from '@studio-freight/compono'
-import { useRect } from '@studio-freight/hamo'
+import { useRect } from 'hamo'
 import { useDeviceDetection } from 'components/device-detection'
 import { useCanvas } from 'libs/webgl/hooks/use-canvas'
 import dynamic from 'next/dynamic'

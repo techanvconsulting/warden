@@ -1,4 +1,4 @@
-import { Lenis, useLenis } from '@studio-freight/react-lenis'
+import { Lenis, useLenis } from 'lenis/react'
 import cn from 'clsx'
 import { CustomHead } from 'components/custom-head'
 import { Footer } from 'components/footer'

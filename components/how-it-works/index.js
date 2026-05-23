@@ -1,6 +1,6 @@
 import { Image } from '@studio-freight/compono'
-import { useRect } from '@studio-freight/hamo'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useRect } from 'hamo'
+import { useLenis } from 'lenis/react'
 import cn from 'clsx'
 import { BarLevel } from 'components/bar-level'
 import { useDeviceDetection } from 'components/device-detection'

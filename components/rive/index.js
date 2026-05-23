@@ -1,11 +1,13 @@
 import { useRive } from '@rive-app/react-canvas'
-import { useIntersectionObserver } from '@studio-freight/hamo'
+import { useIntersectionObserver } from 'hamo'
 import cn from 'clsx'
 import { useEffect } from 'react'
 import s from './rive.module.scss'
 
 export function Rive({ file, loop, className }) {
-  const [setRef, { isIntersecting }] = useIntersectionObserver()
+  // hamo 1.x: [setRef, entry] with entry undefined until it fires.
+  const [setRef, intersection] = useIntersectionObserver()
+  const isIntersecting = intersection?.isIntersecting
 
   const { rive, RiveComponent } = useRive({
     src: file,

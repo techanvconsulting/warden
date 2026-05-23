@@ -1,6 +1,6 @@
 import { RealViewport } from '@studio-freight/compono'
-import { useLenis } from '@studio-freight/react-lenis'
-import Tempus from '@studio-freight/tempus'
+import { useLenis } from 'lenis/react'
+import Tempus from 'tempus'
 import { DeviceDetectionProvider } from 'components/device-detection'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'

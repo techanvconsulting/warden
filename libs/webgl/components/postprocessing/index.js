@@ -1,7 +1,7 @@
 // @refresh reset
 
 import { useFrame, useThree } from '@react-three/fiber'
-import { useWindowSize } from '@studio-freight/hamo'
+import { useWindowSize } from 'hamo'
 import { EffectComposer, EffectPass, RenderPass } from 'postprocessing'
 import { useEffect, useMemo } from 'react'
 import { HalfFloatType } from 'three'

@@ -1,5 +1,5 @@
 import { useThree } from '@react-three/fiber'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import { useTheme } from 'hooks/use-theme'
 import { useEffect, useState } from 'react'
 import { useTiles } from '../tiles/context'

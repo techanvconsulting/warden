@@ -10,7 +10,6 @@
 //   },
 // })
 
-const DuplicatePackageCheckerPlugin = require('@cerner/duplicate-package-checker-webpack-plugin')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -49,18 +48,25 @@ const nextConfig = {
   },
   sassOptions: {
     // add @import 'styles/_functions'; to all scss files.
-    includePaths: [path.join(__dirname, 'styles')],
-    prependData: `@import 'styles/_functions';`,
+    includePaths: [__dirname, path.join(__dirname, 'styles')],
+    // Prepend with an ABSOLUTE path so it resolves from anywhere — including
+    // transpiled node_modules scss (compono). Next 16's webpack sass-loader
+    // resolves bare paths relative to each file's dir, which breaks for
+    // node_modules files; an absolute path sidesteps load-path resolution.
+    prependData: `@import '${path
+      .join(__dirname, 'styles', '_functions')
+      .replace(/\\/g, '/')}';`,
     functions: {
-      'get($keys)': function (keys) {
-        keys = keys.getValue().split('.')
+      // Modern dart-sass API (Next 16): args arrive as an array of `Value`
+      // objects and the function returns a `Value`.
+      'get($keys)': function (args) {
+        const keys = args[0].assertString('keys').text.split('.')
         let result = sassVars
         for (let i = 0; i < keys.length; i++) {
           result = result[keys[i]]
         }
-        result = sassUtils.castToSass(result)
 
-        return result
+        return sassUtils.castToSass(result)
       },
       'getColors()': function () {
         return sassUtils.castToSass(sassVars.colors)
@@ -135,16 +141,11 @@ const nextConfig = {
       },
     )
 
-    config.plugins.push(
-      new DuplicatePackageCheckerPlugin({
-        verbose: true,
-        emitError: true,
-        showHelp: true,
-        strict: false,
-        exclude: (instance) => instance.name === 'fbjs',
-        alwaysEmitErrorsFor: ['react', 'react-router'],
-      }),
-    )
+    // NOTE: @cerner/duplicate-package-checker-webpack-plugin is unmaintained and
+    // throws "Invalid version" on the modern dep tree (semver gets undefined).
+    // Disabled during the bleeding-edge upgrade; re-add a maintained equivalent
+    // if duplicate detection is needed.
+    // config.plugins.push(new DuplicatePackageCheckerPlugin({ ... }))
 
     return config
   },
