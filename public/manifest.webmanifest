@@ -1,9 +1,9 @@
 {
-  "name": "zkPass",
-  "shortName": "zkpass",
-  "description": "",
-  "backgroundColor": "#000",
-  "themeColor": "#C5FF4A",
+  "name": "WARDEN X TECHANV",
+  "shortName": "Warden",
+  "description": "Security-first AI-led SDLC platform by Techanv.",
+  "backgroundColor": "#080808",
+  "themeColor": "#4ade80",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

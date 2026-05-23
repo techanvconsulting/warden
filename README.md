@@ -117,7 +117,7 @@ Site content lives in `tina/content/` as markdown/JSON:
 - Schema (fields shown in the CMS) is defined in `tina/content/**/index.js`.
 
 The header navigation is **not** in the CMS: the anchor links
-(Technologies, Solutions, Features, Hybrid ZK, Use Cases) are hard-coded in
+(Technologies, Solutions, Features, Tenets, Use Cases) are hard-coded in
 `components/header/index.js` and `components/header/mobile/index.js`.
 
 ## Stack

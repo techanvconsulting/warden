@@ -1,8 +1,10 @@
+// Palette mirrors the Techanv product (AIDLC-Sec): near-black, off-white,
+// emerald accent, and zinc neutrals.
 const colors = {
-  black: '#000000',
-  white: '#ffffff',
-  green: '#C5FF4A',
-  grey: '#3D3D3D',
+  black: '#080808',
+  white: '#fafafa',
+  green: '#4ade80',
+  grey: '#27272a',
 }
 
 const themes = {

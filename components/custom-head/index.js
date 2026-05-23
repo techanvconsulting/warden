@@ -6,7 +6,7 @@ export function CustomHead({
   description,
   image,
   keywords,
-  twitter = { handle: '@studiofreight' },
+  twitter = { handle: '@techanv' },
 }) {
   return (
     <>
@@ -36,7 +36,7 @@ export function CustomHead({
           name="keywords"
           content={keywords && keywords.length ? keywords.join(',') : keywords}
         />
-        <meta name="author" content="Studio Freight" />
+        <meta name="author" content="Techanv Consulting" />
         <meta name="referrer" content="no-referrer" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="US" />

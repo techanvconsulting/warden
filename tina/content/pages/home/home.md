@@ -5,371 +5,199 @@ global:
     footer:
       logo: /cms/svg/p.svg
       topLeftLinks:
-        label: About
+        label: Product
         links:
           - link:
-              text: Our Story
-              url: 'https://zkpass.gitbook.io/zkpass/introduction/about-zkpass'
+              text: Framework
+              url: 'https://aidlc-sec.techanv.com/framework.html'
           - link:
-              text: Careers
-              url: 'https://zkpass.gitbook.io/zkpass/supports/were-hiring'
+              text: Phases
+              url: 'https://aidlc-sec.techanv.com/phases.html'
       topRightLinks:
-        label: Support
+        label: Resources
         links:
           - link:
-              text: Brand Assets
-              url: >-
-                https://drive.google.com/drive/folders/1Hx1nlAAW2BEgxcoOKLX6i6q08VMsxHiu
+              text: Tools
+              url: 'https://aidlc-sec.techanv.com/tools.html'
+          - link:
+              text: Threats
+              url: 'https://aidlc-sec.techanv.com/threats.html'
+          - link:
+              text: OWASP LLM Top 10
+              url: 'https://aidlc-sec.techanv.com/owasp.html'
           - link:
               text: Contact
-              url: 'mailto:info@zkpass.org'
-          - link:
-              text: Terms & Conditions
-              url: 'https://zkpass.gitbook.io/zkpass/supports/terms-and-conditions'
-          - link:
-              text: Privacy Policy
-              url: 'https://zkpass.gitbook.io/zkpass/supports/privacy-policy'
+              url: 'mailto:info@techanv.com'
       bottomLinks:
         label: Connect
         links:
           - link:
-              text: Twitter
-              url: 'https://twitter.com/zkPass'
+              text: Techanv
+              url: 'https://techanv.com'
           - link:
-              text: Discord
-              url: 'https://discord.com/invite/zkpass'
-          - link:
-              text: Medium
-              url: 'https://medium.com/zkpass'
+              text: AIDLC-Sec
+              url: 'https://aidlc-sec.techanv.com'
           - link:
               text: Github
               url: 'https://github.com/techanvconsulting/warden'
     _template: navigation
   - title: WARDEN X TECHANV
-    description: Privacy-focused to connect the world
+    description: >-
+      Security-first AI-led SDLC platform. Bake security into every phase of
+      AI development as a blocking constraint — 12 rules, a 7-tool CI pipeline,
+      and human-in-the-loop gates.
     keywords:
-      - web3
+      - AI security
+      - DevSecOps
+      - SDLC
+      - AI agents
     image: /cms/OG.png
     _template: metadata
 sections:
   - header:
-      rowOne: Privacy-Focused
-      rowTwo: To Connect
-      rowThree: the
-      rowFour: World
-    bodyLeft: 'Protocol for Private Data based on MPC, ZKP, 3P-TLS.'
+      rowOne: The Agent OS
+      rowTwo: for Secure
+      rowThree: AI
+      rowFour: Development
+    bodyLeft: '12 blocking rules. 7-tool CI pipeline. Human-in-the-loop gates.'
     bodyRight: >-
-      Verify your real-world private data without revealing your private
-      details.
+      Warden bakes security into every phase of AI-led development as a blocking
+      constraint — not a post-hoc checklist.
     banner:
       icon: /cms/svg/Logo wire 2.svg
       marquee:
         textEntry:
-          - zkPass Pre-alpha Testnet is Open for All Now!
+          - Security as a blocking constraint, not a checklist.
       cta:
-        text: Launch App
-        url: 'https://pre.zkpass.org/dashboard'
+        text: Explore Framework
+        url: 'https://aidlc-sec.techanv.com/'
     _template: hero
   - header:
-      rowOne: ZkProof of
-      rowTwo: Everything
-      rowThree: Pass to
-      rowFour: Anywhere
+      rowOne: Security
+      rowTwo: Baked Into
+      rowThree: Every
+      rowFour: Phase
     body: >
-      zkPass serves as **a seamless gateway** between the private data of the
-      Web2 and Web3 ecosystem.
-    cardsSectionTitle: Our Standings
+      Warden installs security into AI coding agents — **Claude Code, Amazon Q,
+      GitHub Copilot, Cursor** — as a blocking constraint, enforced before any
+      code is written.
+    cardsSectionTitle: The Threat Landscape
     cards:
-      - title: ZkProof Generation
-        number: 200K
-      - title: Transactions
-        number: 230K
-      - title: Community Supporters
-        number: 126K
-      - title: ZK Templates
-        number: '65'
+      - title: AI code with vulnerabilities
+        number: 45%
+      - title: Prompt-injection success rate
+        number: 84%
+      - title: Hardcoded secrets in public commits
+        number: 28.6M
+      - title: Blocking security rules
+        number: '12'
     _template: stats
-  - sectionTitle: How Does it Work?
+  - sectionTitle: How It Works
     cards:
-      - header: TLS
-        subHeader: Transport Layer Security
+      - header: Inception
+        subHeader: Phase 1 — Plan & Threat Model
         text: >-
-          zkPass integrates decentralized MPC Nodes into a 3-party Handshake
-          process, improving the standard TLS protocol. It allows users to log
-          in securely and generate ZKPs locally without API access or data
-          source authorization.
+          Threat modeling and architecture review happen before any code is
+          generated. Design flaws are caught early, so they never propagate into
+          the build.
         illustration: /cms/svg/tls.svg
-      - header: MPC
-        subHeader: Multi-Party Computation
+      - header: Construction
+        subHeader: Phase 2 — Code & Review
         text: >-
-          Randomly selected task nodes supervise the 3-party handshake,
-          obtaining a portion of the mac_key to ensure data integrity and
-          authenticity, prevent scams and tampering, and maintain user privacy. 
-
-
-          The enc_key only remains with the user, so the nodes cannot access or
-          gather user data, providing additional privacy and security.
+          Every change runs the 7-tool CI pipeline — gitleaks, semgrep, grype,
+          checkov and more. A failing SECURITY-XX rule blocks the merge until a
+          human reviews the gate.
         illustration: /cms/svg/mpc.svg
-      - header: ZKP
-        subHeader: Zero-Knowledge Proof
+      - header: Operations
+        subHeader: Phase 3 — Deploy & Monitor
         text: >-
-          Users generate a Zero-Knowledge Proof (ZKP) locally using the response
-          from a TLS-based data source. They can then upload this ZKP on-chain
-          as a unique soul-zkSBT or share it solely with a specified address,
-          providing enhanced privacy options.
+          Deploy, audit, and alert. Every AI decision, scan result, and human
+          approval is recorded in an immutable audit trail for compliance.
         illustration: /cms/svg/zkp.svg
     _template: howItWorks
   - sectionTitle: Approach
     cards:
-      - title: Transgate
+      - title: 12 Blocking Rules
         illustration: /cms/svg/transgate.svg
         description: >
-          **TransGate** is a foundational product that incorporates three key
-          technologies: MPC network, Interactive Zero-knowledge proof system,
-          and 3P-TLS protocol.
-
-
-          The TransGate enables the seamless transfer of private data from the
-          web2 realm to web2 or web3.
+          Twelve non-negotiable **SECURITY-XX** rules. Each is a hard gate — a
+          violation halts all progress and escalates straight to human review.
+          No "fix later".
         cta:
-          text: Install
-          url: 'https://pre.zkpass.org/dashboard'
-      - title: Proof 3 SDK
+          text: View the Rules
+          url: 'https://aidlc-sec.techanv.com/framework.html'
+      - title: 7-Tool CI Pipeline
         illustration: /cms/svg/proof.svg
         description: >
-          The included **Proof3-Client-SDK** and Proof3-Server-SDK, both
-          one-click integrations, enable businesses to trust the zero-knowledge
-          proofs generated by individual or enterprise users from trusted data
-          sources without compromising privacy, to unlock eligible access or
-          privileges.
-      - title: Template
+          **gitleaks, semgrep, grype, checkov** and more run on every change.
+          Secret detection, SAST, dependency and IaC scanning — all blocking,
+          all automated.
+      - title: Human-in-the-Loop
         illustration: /cms/svg/template.svg
         description: >
-          **Template** is a mapping of specific HTML elements to the certificate
-          generation system. Through Template, users can select target data
-          sources and personalized fields according to business needs, and
-          seamlessly integrate them into the zkPass protocol.
+          At every phase boundary the only options are **Request Changes** or
+          **Approve & Continue**. The agent cannot self-approve or bypass a
+          review. No third option exists.
     _template: approach
-  - sectionTitle: Features
+  - sectionTitle: Tenets
     cards:
-      - title: Privacy-Preserving
-        body: Users can prove everything without uploading any documents via zkPass.
-      - title: Compatibility
-        body: Seamless compatible with all HTTPS-based web sessions without APIs.
-      - title: Verifiability
+      - title: Security as a Blocking Constraint
+        body: Violations halt all progress. Each of the 12 rules is a hard gate.
+      - title: Human-in-the-Loop
+        body: AI cannot self-approve or bypass reviews at any phase boundary.
+      - title: Design Before Code
+        body: Threat modeling and architecture review before any code is generated.
+      - title: Overconfidence Prevention
         body: >-
-          Verify the provenance, authenticity, integrity and validity of private
-          data.
-      - title: Anti-Cheating
+          Agents must ask for clarification rather than hallucinate
+          implementations.
+      - title: Immutable Audit Trail
         body: >-
-          Protects against malicious activities such as identity theft and data
-          tampering.
-      - title: Memory-Efficiency
-        body: >-
-          Hybrid ZK proof system that enables millisecond ZKP generation in a
-          browser environment.
+          Every decision, scan, and approval is recorded — SOC2, ISO 27001 and
+          EU AI Act ready.
     _template: features
-  - header:
-      rowOne: The Most Efficient
-      rowTwo: and Affordable
-      rowThree: Zero-Knowledge
-      label: Hybrid ZK
-      body: >-
-        We have developed and optimized the memory-efficient Hybird ZK proof
-        system including VOLE-ZK and zk-SNARKs algorithm, which allows users to
-        generate zero knowledge in less than 1 second in the browser environment
-        of a PC, process tens of millions of gates per second, and handle large
-        circuits with billions of gates while requiring less than 300M of
-        memory.
-    cardsSectionTitle: Hardware Setup
-    cards:
-      - label: Prover
-        body: |-
-          MacBook Pro 15-inch Mid 2015
-          16GB DDR3 Memory
-          2.5GHz Intel Core i7 Processor
-      - label: Verifier
-        body: |-
-          AWS c6a.2xlarge Instance
-          8 virtual CPUs
-          16GB Memory (GiB)
-    table:
-      - title: |
-          ### Snark
-        block: |
-          ### 4
-        setupTime: |
-          ### 0**s**
-        proveTime: |
-          ### 22000**ms**
-        verifyTime: |
-          ### 100**ms**
-        memory: |
-          ### 630**m**
-        gates: |
-          ### 540,292
-      - title: |
-          ### Vole23-ZK
-
-          Powered by ZKPass
-        block: |
-          ### 4
-        setupTime: |
-          ### 0**s**
-        proveTime: |
-          ### 22000**ms**
-        verifyTime: |
-          ### 100**ms**
-        memory: |
-          ### 630**m**
-        gates: |
-          ### 540,292
-      - title: |
-          ### Snark
-        block: |
-          ### 4
-        setupTime: |
-          ### 0**s**
-        proveTime: |
-          ### 22000**ms**
-        verifyTime: |
-          ### 100**ms**
-        memory: |
-          ### 630**m**
-        gates: |
-          ### 540,292
-      - title: |
-          ### Snark
-        block: |
-          ### 4
-        setupTime: |
-          ### 0**s**
-        proveTime: |
-          ### 22000**ms**
-        verifyTime: |
-          ### 100**ms**
-        memory: |
-          ### 630**m**
-        gates: |
-          ### 540,292
-    _template: hardware
   - sectionTitle: Use Cases
     cards:
-      - title: ZKKYC
-        header: ZKKYC
+      - title: Enterprise AI Adoption
+        header: Enterprise AI Adoption
         illustration: /cms/svg/Frame 1073715487.svg
         body: >-
-          An decentralized authentication solution that verifies your legal
-          identity without requiring file uploads or the over-disclosure of
-          private information.
-      - title: Undercollateralized DeFi Lending Protocol
-        header: Undercollateralized DeFi Lending Protocol
+          Roll AI coding agents out across teams with security gates enforced at
+          the agent-instruction level — before any code is written.
+      - title: Compliance-Ready Development
+        header: Compliance-Ready Development
         illustration: /cms/svg/Frame 1073715487(1).svg
         body: >-
-          A DeFi lending protocol combining on-chain and off-chain credit allows
-          users to selectively verify their on-chain and off-chain reputations
-          have access to lower collateralized borrowing opportunities,
-          increasing capital efficiency.
-      - title: Healthcare zk-data Marketplace
-        header: Healthcare zk-data Marketplace
+          Generate an immutable audit trail mapped to OWASP LLM Top 10, NIST AI
+          RMF and the EU AI Act — ready for SOC2 and ISO 27001 evidence.
+      - title: Secure Vibe-Coding
+        header: Secure Vibe-Coding
         illustration: /cms/svg/Healthcare zk-data Marketplace svg.svg
         body: >-
-          A private healthcare data marketplace that allows users to selectively
-          disclose trusted healthcare data to earn rewards.
-      - title: Decentralized Job Marketplace
-        header: Decentralized Job Marketplace
+          Let developers move fast with AI while insecure code is blocked before
+          it can merge. Speed without the security debt.
+      - title: Supply-Chain Defense
+        header: Supply-Chain Defense
         illustration: /cms/svg/djm.svg
         body: >-
-          A decentralized freelance marketplace that allows users to secure
-          remote work opportunities by privately disclosing some of their
-          trusted data through zkPass.
-
-
-          A DeFi lending protocol combining on-chain and off-chain credit allows
-          users to selectively verify their on-chain and off-chain reputations
-          have access.
-      - title: INSURANCE CLAIMS
-        header: Insurance Claims
+          Catch hallucinated packages, vulnerable dependencies and hardcoded
+          secrets in CI — before they ever ship to production.
+      - title: Agent Governance
+        header: Agent Governance
         illustration: /cms/svg/Insurance Claims.svg
         body: >-
-          Generate zero-knowledge proofs from private data during a web session
-          and submit them to a smart contract for insurance policy eligibility
-          verification, enabling automatic claim settlement without the need for
-          manual review.
+          Enforce phase gates and human approval consistently across Claude
+          Code, GitHub Copilot, Cursor and Amazon Q Developer.
     cta:
-      text: More Use Cases
-      url: 'https://google.com'
+      text: Read the Framework
+      url: 'https://aidlc-sec.techanv.com/'
     _template: useCases
-  - row:
-      - sectionTitle: Partners
-        body: We Work With the Best
-        alignment: Right
-        cards:
-          - companyName: zk.link
-            companyLogo: /cms/svg/zkLink.svg
-          - companyName: Poolz Finance
-            companyLogo: /cms/svg/PoolzFinance.svg
-          - companyName: Galxe
-            companyLogo: /cms/svg/Galxe.svg
-          - companyName: ZKM
-            companyLogo: /cms/svg/ZKM.svg
-          - companyName: Verida Wallet
-            companyLogo: /cms/svg/Veridawallet.svg
-          - companyName: CyberConnect
-            companyLogo: /cms/svg/Cyberconnect.svg
-          - companyName: Linea
-            companyLogo: /cms/svg/linea.svg
-          - companyName: zkSync
-            companyLogo: /cms/svg/Zksync.svg
-          - companyName: Layer Zero
-            companyLogo: /cms/svg/LayerZero.svg
-      - sectionTitle: Investors
-        body: Backed by Leading Investors
-        alignment: Left
-        cards:
-          - companyName: Binance Labs
-            companyLogo: /cms/svg/Binancelabs.svg
-          - companyName: Blockchain founders fund
-            companyLogo: /cms/svg/Blockchain.svg
-          - companyName: Cypher capital
-            companyLogo: /cms/svg/Cyphercapital.svg
-          - companyName: dao5
-            companyLogo: /cms/svg/dao5.svg
-          - companyName: Leland Ventures
-            companyLogo: /cms/svg/Lelandventures.svg
-          - companyName: OKX Ventures
-            companyLogo: /cms/svg/okxventures.svg
-          - companyName: SIGDT investments
-            companyLogo: /cms/svg/sigdt.svg
-          - companyName: Sequoia
-            companyLogo: /cms/svg/sequoia.svg
-    _template: partnersAndInvestors
-  - sectionTitle: News
-    articles:
-      - date: 2023-08-07T23:00:00.000Z
-        image: /cms/images/1Highlighted_news_0.png
-        articleTitle: >-
-          zkPass Secures $2.5 Million in Seed Funding to Safeguard User Privacy
-          and Data
-        articleURL: >-
-          https://finance.yahoo.com/news/zkpass-secures-2-5-million-122400144.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAANgyD_D5hblxMwQjmMXWHs2SikQV0Uj09X36ZeL4DXLPThn2V_PfGvmzulMRg5OMdev2XZD9NBc3Jdg3Td_--ssineJM_zpcciK6XFKr6knJeHTWwZpCr34d_EkSyzGlBQk94LpxOoeZaBRCcXCmqQTF0Zytc3u4yt1zQUSnrFUQ
-      - date: 2022-11-10T00:00:00.000Z
-        image: /cms/images/2Highlighted_news_01.png
-        articleTitle: zkPass was selected for Season 5 of Binance Labs Incubation Program
-        articleURL: >-
-          https://www.binance.com/en/blog/ecosystem/12-projects-selected-for-season-5-of-binance-labs-incubation-program-325926784915574914
-      - date: 2023-05-05T23:00:00.000Z
-        image: /cms/images/3Highlighted_news_02.png
-        articleTitle: 'Build the Block Finale: Crowning zkPass as Our Competition Winners'
-        articleURL: >-
-          https://www.binance.com/en/blog/ecosystem/build-the-block-finale-crowning-zkpass-as-our-competition-winners-8266623440845959186
-    _template: news
   - header:
       rowOne: Here
       rowTwo: To Answer
       rowThree: Your Questions
     contactCTA:
       text: Contact
-      url: 'mailto:info@zkpass.org'
+      url: 'mailto:info@techanv.com'
     _template: contact
 ---

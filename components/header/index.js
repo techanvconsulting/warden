@@ -9,7 +9,7 @@ export function Header() {
     { text: 'Technologies', url: '/#technologies' },
     { text: 'Solutions', url: '/#solutions' },
     { text: 'Features', url: '/#features' },
-    { text: 'Hybrid ZK', url: '/#hybrid-zk' },
+    { text: 'Tenets', url: '/#tenets' },
     { text: 'Use Cases', url: '/#use-cases' },
   ]
 
