@@ -1,5 +1,5 @@
 import { useThree } from '@react-three/fiber'
-import { useFrame } from '@studio-freight/hamo'
+import { useTempus } from 'tempus/react'
 import { useEffect, useMemo } from 'react'
 import StatsGL from 'stats-gl'
 import s from './stats.module.scss'
@@ -20,11 +20,11 @@ export function Stats() {
     }
   }, [stats])
 
-  useFrame(() => {
+  useTempus(() => {
     stats.begin()
   }, -Infinity)
 
-  useFrame(() => {
+  useTempus(() => {
     stats.end()
   }, Infinity)
 }

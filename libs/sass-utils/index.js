@@ -1,77 +1,74 @@
+// Coerce plain JS values into modern dart-sass `Value` objects.
+//
+// Migrated from the legacy `sass.types.*` API (node-sass style) to the modern
+// API (`sass.SassString`, `sass.SassNumber`, `sass.SassColor`, `sass.SassMap`,
+// ...) required by Next 16's sass-loader. Original reference:
 // https://github.com/sass-eyeglass/node-sass-utils/blob/master/lib/coercion.js
 
 const sass = require('sass')
-const isSassType = require('./util').isSassType
 
-function hexToRGB(hex) {
+function hexToColor(hex) {
   if (!/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex))
     throw new Error(`Invalid hex: ${hex}`)
 
   let c = hex.substring(1).split('')
-  if (c.length == 3) {
+  if (c.length === 3) {
     c = [c[0], c[0], c[1], c[1], c[2], c[2]]
   }
-  c = `0xff${c.join('')}`
-  return Number(c)
+  const n = c.join('')
+  return new sass.SassColor({
+    red: parseInt(n.substring(0, 2), 16),
+    green: parseInt(n.substring(2, 4), 16),
+    blue: parseInt(n.substring(4, 6), 16),
+    alpha: 1,
+  })
+}
+
+function isSassValue(value) {
+  return (
+    value != null &&
+    typeof value === 'object' &&
+    typeof value.constructor === 'function' &&
+    /^Sass/.test(value.constructor.name)
+  )
 }
 
 function castToSass(jsValue) {
   if (jsValue && typeof jsValue.toSass === 'function') {
-    // string -> unquoted string
     return jsValue.toSass()
+  } else if (isSassValue(jsValue)) {
+    // already a sass Value — pass through untouched
+    return jsValue
   } else if (typeof jsValue === 'string') {
-    // string -> unquoted string
-
     if (jsValue.includes('px')) {
-      return new sass.types.Number(Number(jsValue.replace('px', '')), 'px')
-    } else if (jsValue.startsWith('#')) {
-      //TODO: accept rgb values
-      return new sass.types.Color(hexToRGB(jsValue))
+      return new sass.SassNumber(Number(jsValue.replace('px', '')), 'px')
+    } else if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(jsValue)) {
+      return hexToColor(jsValue)
     } else {
-      return new sass.types.String(jsValue)
+      return new sass.SassString(jsValue, { quotes: false })
     }
   } else if (typeof jsValue === 'boolean') {
-    // boolean -> boolean
-    return jsValue ? sass.types.Boolean.TRUE : sass.types.Boolean.FALSE
+    return jsValue ? sass.sassTrue : sass.sassFalse
   } else if (typeof jsValue === 'undefined' || jsValue === null) {
-    // undefined/null -> null
-    return sass.types.Null.NULL
+    return sass.sassNull
   } else if (typeof jsValue === 'number') {
-    // Js Number -> Unitless Number
-    return new sass.types.Number(jsValue)
-  } else if (jsValue && jsValue.constructor.name === 'Array') {
-    // Array -> List
-    var list = new sass.types.List(jsValue.length)
-    for (var i = 0; i < jsValue.length; i++) {
-      list.setValue(i, this.castToSass(jsValue[i]))
-    }
-    var isComma =
-      typeof jsValue.separator === 'undefined' ? true : jsValue.separator
-    list.setSeparator(isComma)
-    return list
-  } else if (jsValue === sass.types.Null.NULL) {
-    // no-op if sass.types.Null.NULL
-    return jsValue
-  } else if (jsValue && isSassType(jsValue)) {
-    // these are sass objects that we don't coerce
-    return jsValue
+    return new sass.SassNumber(jsValue)
+  } else if (Array.isArray(jsValue)) {
+    return new sass.SassList(
+      jsValue.map((v) => castToSass(v)),
+      { separator: ',' },
+    )
   } else if (typeof jsValue === 'object') {
-    var keys = []
-    for (var k in jsValue) {
-      if (jsValue.hasOwnProperty(k)) {
-        keys[keys.length] = k
-      }
+    const map = new Map()
+    for (const key of Object.keys(jsValue)) {
+      map.set(
+        new sass.SassString(key, { quotes: false }),
+        castToSass(jsValue[key]),
+      )
     }
-    var map = new sass.types.Map(keys.length)
-    for (var m = 0; m < keys.length; m++) {
-      var key = keys[m]
-      map.setKey(m, new sass.types.String(key))
-      map.setValue(m, this.castToSass(jsValue[key]))
-    }
-    return map
+    return new sass.SassMap(map)
   } else {
-    // WTF
-    throw new Error("Don't know how to coerce: " + jsValue.toString())
+    throw new Error("Don't know how to coerce: " + jsValue)
   }
 }
 

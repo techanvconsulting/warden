@@ -1,4 +1,4 @@
-import { useRect, useWindowSize } from '@studio-freight/hamo'
+import { useRect, useWindowSize } from 'hamo'
 import cn from 'clsx'
 import { useDeviceDetection } from 'components/device-detection'
 import { viewports } from 'config/variables'

@@ -1,6 +1,8 @@
-import { NextSeo } from 'next-seo'
+import { generateNextSeo } from 'next-seo/pages'
 import NextHead from 'next/head'
 
+// next-seo 7 removed the <NextSeo> component for the pages router; it now exposes
+// generateNextSeo(props) which returns the SEO meta nodes to drop into <Head>.
 export function CustomHead({
   title,
   description,
@@ -9,51 +11,32 @@ export function CustomHead({
   twitter = { handle: '@techanv' },
 }) {
   return (
-    <>
-      <NextHead>
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+    <NextHead>
+      <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
-        {/* <meta
-          name="robots"
-          content={
-            process.env.NODE_ENV !== 'development'
-              ? 'index,follow'
-              : 'noindex,nofollow'
-          }
-        />
-        <meta
-          name="googlebot"
-          content={
-            process.env.NODE_ENV !== 'development'
-              ? 'index,follow'
-              : 'noindex,nofollow'
-          }
-        /> */}
-        <meta name="robots" content={'noindex,nofollow'} />
-        <meta name="googlebot" content={'noindex,nofollow'} />
+      <meta name="robots" content={'noindex,nofollow'} />
+      <meta name="googlebot" content={'noindex,nofollow'} />
 
-        <meta
-          name="keywords"
-          content={keywords && keywords.length ? keywords.join(',') : keywords}
-        />
-        <meta name="author" content="Techanv Consulting" />
-        <meta name="referrer" content="no-referrer" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="geo.region" content="US" />
+      <meta
+        name="keywords"
+        content={keywords && keywords.length ? keywords.join(',') : keywords}
+      />
+      <meta name="author" content="Techanv Consulting" />
+      <meta name="referrer" content="no-referrer" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="geo.region" content="US" />
 
-        {/* START FAVICON */}
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
-        {/* END FAVICON */}
+      {/* START FAVICON */}
+      <link rel="icon" href="/favicon.ico" sizes="32x32" />
+      <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/manifest.webmanifest" />
+      {/* END FAVICON */}
 
-        <title>{title}</title>
-      </NextHead>
-      <NextSeo
-        title={title}
-        description={description}
-        openGraph={{
+      {generateNextSeo({
+        title,
+        description,
+        openGraph: {
           title,
           description,
           type: 'website',
@@ -69,12 +52,12 @@ export function CustomHead({
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
           site_name: '',
-        }}
-        twitter={{
+        },
+        twitter: {
           handle: twitter.handle,
           cardType: 'summary_large_image',
-        }}
-      />
-    </>
+        },
+      })}
+    </NextHead>
   )
 }

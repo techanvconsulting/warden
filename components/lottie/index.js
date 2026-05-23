@@ -1,7 +1,4 @@
-import {
-  useDocumentReadyState,
-  useIntersectionObserver,
-} from '@studio-freight/hamo'
+import { useIntersectionObserver } from 'hamo'
 import cn from 'clsx'
 import {
   forwardRef,
@@ -11,6 +8,23 @@ import {
   useState,
 } from 'react'
 import s from './lottie.module.scss'
+
+// hamo 1.x dropped useDocumentReadyState — local replacement tracking
+// document.readyState ('loading' | 'interactive' | 'complete').
+function useDocumentReadyState() {
+  const [readyState, setReadyState] = useState(
+    typeof document !== 'undefined' ? document.readyState : 'loading',
+  )
+
+  useEffect(() => {
+    const onChange = () => setReadyState(document.readyState)
+    document.addEventListener('readystatechange', onChange)
+    onChange()
+    return () => document.removeEventListener('readystatechange', onChange)
+  }, [])
+
+  return readyState
+}
 
 export const Lottie = forwardRef(function Lottie(
   { file, loop = false, className, type = 'canvas', viewThreshold = 0 },
@@ -22,9 +36,12 @@ export const Lottie = forwardRef(function Lottie(
   const [animator, setAnimator] = useState()
   const [lottiePkg, setLottiePkg] = useState()
 
-  const [setRef, { isIntersecting }] = useIntersectionObserver({
+  // hamo 1.x returns [setRef, entry] where entry is undefined until the
+  // observer fires (was a default object before) — read isIntersecting safely.
+  const [setRef, intersection] = useIntersectionObserver({
     threshold: viewThreshold,
   })
+  const isIntersecting = intersection?.isIntersecting
   const readyState = useDocumentReadyState()
 
   const fetchJson = async (externalAnimation) => {

@@ -1,10 +1,10 @@
 import { useThree } from '@react-three/fiber'
-import { useFrame } from '@studio-freight/hamo'
+import { useTempus } from 'tempus/react'
 
 export function RAF({ render = true }) {
   const { advance } = useThree()
 
-  useFrame((time) => {
+  useTempus((time) => {
     if (render) {
       advance(time / 1000)
     }

@@ -1,6 +1,6 @@
 import { useFrame, useThree } from '@react-three/fiber'
-import { useWindowSize } from '@studio-freight/hamo'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useWindowSize } from 'hamo'
+import { useLenis } from 'lenis/react'
 import { types } from '@theatre/core'
 import { useTheme } from 'hooks/use-theme'
 import { useCurrentSheet } from 'libs/theatre'
@@ -149,7 +149,7 @@ export function useTilesEffect() {
     for (let i = 0; i < size; i++) {
       const value = Boolean(
         matrix[i % matrix.length][Math.floor(i / matrix.length)] ||
-          interactiveMatrix[i % matrix.length][Math.floor(i / matrix.length)],
+        interactiveMatrix[i % matrix.length][Math.floor(i / matrix.length)],
       )
 
       const channel = i * 4

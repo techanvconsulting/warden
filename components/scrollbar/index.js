@@ -1,5 +1,5 @@
-import { useRect } from '@studio-freight/hamo'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useRect } from 'hamo'
+import { useLenis } from 'lenis/react'
 import { mapRange } from 'libs/maths'
 import { useEffect, useRef } from 'react'
 import s from './scrollbar.module.scss'

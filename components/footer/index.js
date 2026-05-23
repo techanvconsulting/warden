@@ -1,5 +1,5 @@
 import { Link } from 'components/link'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import cn from 'clsx'
 import { Mask } from 'components/mask'
 import { tinaField } from 'tinacms/dist/react'

@@ -1,5 +1,5 @@
 import { useThree } from '@react-three/fiber'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import { useRef } from 'react'
 
 export function useWebGLRect(DOMRect) {

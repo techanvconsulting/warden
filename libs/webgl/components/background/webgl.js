@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber'
-import { useWindowSize } from '@studio-freight/hamo'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useWindowSize } from 'hamo'
+import { useLenis } from 'lenis/react'
 import { useTransform } from 'hooks/use-transform'
 import { useTiles } from '../postprocessing/effects/tiles/context'
 
