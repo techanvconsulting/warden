@@ -60,17 +60,17 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* Google Tag Manager - Global base code */}
-      {process.env.NODE_ENV !== 'development' && (
+      {/* Google Tag Manager - Global base code (only when an ID is configured) */}
+      {process.env.NODE_ENV !== 'development' && GTM_ID && (
         <>
           <Script
             async
-            strategy="worker"
+            strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
           />
           <Script
             id="gtm-base"
-            strategy="worker"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

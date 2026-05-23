@@ -1,4 +1,4 @@
-import { Link } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import cn from 'clsx'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
@@ -26,7 +26,7 @@ export function HeaderMobile() {
   return (
     <header className={cn(s.headerMobile, 'mobile-only')}>
       <Link href="/" className={s.logoLink}>
-        ZkPass
+        WARDEN X TECHANV
       </Link>
 
       <button className={s.menuButton} onClick={() => setMenuOpen(!menuOpen)}>

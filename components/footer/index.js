@@ -1,4 +1,4 @@
-import { Link } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import { useLenis } from '@studio-freight/react-lenis'
 import cn from 'clsx'
 import { Mask } from 'components/mask'
@@ -97,7 +97,7 @@ export function Footer(props) {
       </button>
 
       <span className={cn(s.copyright, 'p')}>
-        © {new Date().getFullYear()} ZKPASS
+        © {new Date().getFullYear()} WARDEN X TECHANV
       </span>
     </footer>
   )

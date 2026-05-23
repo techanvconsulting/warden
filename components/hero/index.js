@@ -1,4 +1,5 @@
-import { Image, Link } from '@studio-freight/compono'
+import { Image } from '@studio-freight/compono'
+import { Link } from 'components/link'
 import cn from 'clsx'
 import { BarLevel } from 'components/bar-level'
 import { Lottie } from 'components/lottie'
