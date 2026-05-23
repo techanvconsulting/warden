@@ -1,6 +1,10 @@
 import { Approach } from 'components/approach'
+import { CiTools } from 'components/ci-tools'
+import { Compliance } from 'components/compliance'
 import { Contact } from 'components/contact'
 import { Features } from 'components/features'
+import { Quickstart } from 'components/quickstart'
+import { Terminal } from 'components/terminal'
 import { Hardware } from 'components/hardware'
 import { Hero } from 'components/hero'
 import { HowItWorks } from 'components/how-it-works'
@@ -54,13 +58,17 @@ export default function Home({ home }) {
     <Layout theme={theme} className={s.page} {...navigation} seo={metadata}>
       {hero && <Hero {...hero} />}
       {stats && <Stats {...stats} />}
+      <Terminal />
       {howItWorks && <HowItWorks {...howItWorks} />}
+      <CiTools />
       {approach && <Approach {...approach} />}
       {features && <Features {...features} />}
-      {hardware && <Hardware {...hardware} />}
+      <Compliance />
       {useCases && <UseCases {...useCases} />}
+      {hardware && <Hardware {...hardware} />}
       {partnersAndInvestors && <Partners {...partnersAndInvestors} />}
       {news && <News {...news} />}
+      <Quickstart />
       {contact && <Contact {...contact} />}
     </Layout>
   )

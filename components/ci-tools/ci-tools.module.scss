@@ -1,0 +1,119 @@
+.wrapper {
+  padding: mobile-vw(60px) 0;
+
+  @include desktop {
+    padding: desktop-vw(120px) 0;
+  }
+}
+
+.head {
+  max-width: desktop-vw(620px);
+  margin-bottom: mobile-vw(32px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(56px);
+  }
+}
+
+.kicker {
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  color: var(--theme-contrast);
+  margin-bottom: mobile-vw(12px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  @include desktop {
+    margin-bottom: desktop-vw(16px);
+  }
+}
+
+.title {
+  margin-bottom: mobile-vw(16px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(20px);
+  }
+}
+
+.sub {
+  color: var(--theme-primary);
+  opacity: 0.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: mobile-vw(10px);
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: desktop-vw(12px);
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: mobile-vw(14px);
+  padding: mobile-vw(16px) mobile-vw(18px);
+  border: 1px solid var(--theme-primary);
+  border-radius: 4px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  @include desktop {
+    gap: desktop-vw(16px);
+    padding: desktop-vw(20px) desktop-vw(24px);
+  }
+
+  &:hover {
+    border-color: var(--theme-contrast);
+    transform: translateY(-2px);
+  }
+}
+
+.name {
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-size: mobile-vw(15px);
+  color: var(--theme-primary);
+  min-width: mobile-vw(110px);
+
+  @include desktop {
+    font-size: desktop-vw(16px);
+    min-width: desktop-vw(140px);
+  }
+}
+
+.scans {
+  flex: 1;
+  font-size: mobile-vw(12px);
+  color: var(--theme-primary);
+  opacity: 0.55;
+
+  @include desktop {
+    font-size: desktop-vw(13px);
+  }
+}
+
+.status {
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-size: mobile-vw(11px);
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  border-radius: 3px;
+
+  @include desktop {
+    font-size: desktop-vw(11px);
+  }
+}
+
+.pass {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.block {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.12);
+}

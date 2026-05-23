@@ -1,0 +1,141 @@
+.wrapper {
+  padding: mobile-vw(60px) 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include desktop {
+    padding: desktop-vw(140px) 0;
+  }
+}
+
+.kicker {
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  color: var(--theme-contrast);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: mobile-vw(12px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(16px);
+  }
+}
+
+.title {
+  margin-bottom: mobile-vw(14px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(18px);
+  }
+}
+
+.sub {
+  max-width: desktop-vw(520px);
+  color: var(--theme-primary);
+  opacity: 0.6;
+  margin-bottom: mobile-vw(32px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(40px);
+  }
+}
+
+.code {
+  display: flex;
+  align-items: center;
+  gap: mobile-vw(10px);
+  background: #080808;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  padding: mobile-vw(14px) mobile-vw(16px);
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  width: 100%;
+  max-width: desktop-vw(560px);
+
+  @include desktop {
+    gap: desktop-vw(12px);
+    padding: desktop-vw(18px) desktop-vw(22px);
+  }
+}
+
+.prompt {
+  color: #4ade80;
+}
+
+.cmd {
+  flex: 1;
+  text-align: left;
+  color: #fafafa;
+  font-size: mobile-vw(13px);
+  white-space: nowrap;
+  overflow-x: auto;
+
+  @include desktop {
+    font-size: desktop-vw(15px);
+  }
+}
+
+.copy {
+  flex-shrink: 0;
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-size: mobile-vw(11px);
+  color: #a1a1aa;
+  border: 1px solid #27272a;
+  border-radius: 3px;
+  padding: 4px 10px;
+  transition: all 0.2s ease;
+
+  @include desktop {
+    font-size: desktop-vw(12px);
+  }
+
+  &:hover {
+    color: #4ade80;
+    border-color: #4ade80;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: mobile-vw(14px);
+  margin-top: mobile-vw(28px);
+
+  @include desktop {
+    flex-direction: row;
+    gap: desktop-vw(20px);
+    margin-top: desktop-vw(32px);
+  }
+}
+
+.button {
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-size: mobile-vw(13px);
+  padding: mobile-vw(12px) mobile-vw(24px);
+  background: var(--theme-contrast);
+  color: #080808;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+
+  @include desktop {
+    font-size: desktop-vw(14px);
+    padding: desktop-vw(14px) desktop-vw(28px);
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.meta {
+  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-size: mobile-vw(11px);
+  color: var(--theme-primary);
+  opacity: 0.5;
+
+  @include desktop {
+    font-size: desktop-vw(12px);
+  }
+}
