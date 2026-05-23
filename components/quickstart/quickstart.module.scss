@@ -11,7 +11,7 @@
 }
 
 .kicker {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   color: var(--theme-contrast);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -49,7 +49,7 @@
   border: 1px solid #2e2e32;
   border-radius: 6px;
   padding: mobile-vw(14px) mobile-vw(16px);
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   width: 100%;
   max-width: desktop-vw(560px);
 
@@ -78,7 +78,7 @@
 
 .copy {
   flex-shrink: 0;
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   font-size: mobile-vw(11px);
   color: #a1a1aa;
   border: 1px solid #27272a;
@@ -111,7 +111,7 @@
 }
 
 .button {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   font-size: mobile-vw(13px);
   padding: mobile-vw(12px) mobile-vw(24px);
   background: var(--theme-contrast);
@@ -130,7 +130,7 @@
 }
 
 .meta {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   font-size: mobile-vw(11px);
   color: var(--theme-secondary);
   opacity: 0.5;

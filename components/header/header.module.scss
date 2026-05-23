@@ -83,14 +83,21 @@
     }
   }
   .status {
-    grid-column: span 4;
+    grid-column: span 6;
     background: var(--theme-primary);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: desktop-vw(8px);
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+
+    span {
+      white-space: nowrap;
+    }
   }
   .dot {
     width: desktop-vw(7px);
@@ -102,11 +109,15 @@
     flex-shrink: 0;
   }
   .cta {
-    grid-column: span 4;
+    grid-column: span 6;
     background: var(--theme-contrast);
     color: var(--theme-primary);
     border-right: 1px solid var(--theme-dot);
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
     transition: filter 200ms ease;
 
     &:hover {

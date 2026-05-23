@@ -16,7 +16,7 @@
 }
 
 .kicker {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   color: var(--theme-contrast);
   margin-bottom: mobile-vw(12px);
   text-transform: uppercase;
@@ -74,7 +74,7 @@
 }
 
 .name {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   font-size: mobile-vw(15px);
   color: var(--theme-secondary);
   min-width: mobile-vw(110px);
@@ -97,7 +97,7 @@
 }
 
 .status {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   font-size: mobile-vw(11px);
   letter-spacing: 0.06em;
   padding: 4px 8px;

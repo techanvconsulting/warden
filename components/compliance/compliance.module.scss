@@ -12,7 +12,7 @@
 }
 
 .kicker {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   color: var(--theme-contrast);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -44,7 +44,7 @@
 }
 
 .chip {
-  font-family: 'PP FraktionMono', ui-monospace, monospace;
+  font-family: var(--font-pp);
   font-size: mobile-vw(12px);
   padding: mobile-vw(8px) mobile-vw(14px);
   border: 1px solid var(--theme-dot);

@@ -21,6 +21,7 @@
 }
 
 :root {
-  --font-kh: 'KH Interference';
-  --font-pp: 'PP FraktionMono';
+  --font-kh: 'KH Interference', ui-sans-serif, system-ui, sans-serif;
+  --font-pp: 'PP FraktionMono', ui-monospace, 'JetBrains Mono', 'SFMono-Regular',
+    monospace;
 }
