@@ -128,12 +128,12 @@
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+    box-shadow: 0 0 0 0 rgba(24, 163, 210, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 desktop-vw(6px) rgba(74, 222, 128, 0);
+    box-shadow: 0 0 0 desktop-vw(6px) rgba(24, 163, 210, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    box-shadow: 0 0 0 0 rgba(24, 163, 210, 0);
   }
 }

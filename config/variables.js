@@ -1,15 +1,15 @@
-// Palette mirrors the Techanv product (AIDLC-Sec): near-black, off-white,
-// emerald accent, and zinc neutrals.
+// Palette: near-black, off-white, zinc neutrals, and the brand accent extracted
+// from the Warden logomark — the teal/cyan top of the gradient "A" (#18a3d2).
 const colors = {
   black: '#080808',
   white: '#fafafa',
-  green: '#4ade80',
+  accent: '#18a3d2',
   grey: '#27272a',
 }
 
 const themes = {
   light: {
-    layout: colors.green,
+    layout: colors.accent,
     primary: colors.black,
     secondary: colors.black,
     contrast: colors.white,
@@ -20,9 +20,9 @@ const themes = {
     layout: colors.black,
     primary: colors.black,
     secondary: colors.white,
-    contrast: colors.green,
+    contrast: colors.accent,
     dot: colors.grey,
-    'invert-layout': colors.green,
+    'invert-layout': colors.accent,
   },
 }
 

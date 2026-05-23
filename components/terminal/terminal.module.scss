@@ -44,7 +44,7 @@
       background: #fbbf24;
     }
     &:last-child {
-      background: var(--theme-contrast, #4ade80);
+      background: var(--theme-contrast, #18a3d2);
     }
   }
 }
@@ -80,7 +80,7 @@
   color: #fafafa;
 }
 .ok {
-  color: #4ade80;
+  color: #18a3d2;
 }
 .muted {
   color: #71717a;
@@ -104,7 +104,7 @@
   height: 1em;
   margin-left: 2px;
   vertical-align: text-bottom;
-  background: var(--theme-contrast, #4ade80);
+  background: var(--theme-contrast, #18a3d2);
   animation: blink 1s step-end infinite;
 }
 
