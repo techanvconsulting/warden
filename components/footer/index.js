@@ -10,8 +10,6 @@ export function Footer(props) {
 
   const lenis = useLenis()
 
-  console.log(logo)
-
   return (
     <footer className={cn(s.footer, 'layout-grid')} id="footer">
       <div className={s.icon} data-tina-field={tinaField(props, 'logo')}>

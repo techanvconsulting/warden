@@ -3,7 +3,7 @@ title: home
 global:
   - header: {}
     footer:
-      logo: /cms/svg/p.svg
+      logo: /images/logomark-a.png
       topLeftLinks:
         label: Product
         links:
